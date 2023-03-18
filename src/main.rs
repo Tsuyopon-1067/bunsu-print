@@ -36,6 +36,7 @@ fn kakezan_item() -> (String, String) {
     (e, f) = yakubun(e, f);
     
     let res1: String = format!("\t\t\t\\item $\\displaystyle \\frac{{{}}}{{{}}} \\times \\frac{{{}}}{{{}}}$", b.to_string(), a.to_string(), d.to_string(), c.to_string());
+    //let res1: String = format!("\t\t\t\\item $\\displaystyle {} \\times {}$", bunsu_text(0, 0, 0), bunsu_text(0, 0, 0));
     let res2: String = format!("\t\t\t\\item $\\displaystyle \\frac{{{}}}{{{}}}$", f.to_string(), e.to_string());
     (res1, res2)
 }
@@ -59,13 +60,13 @@ fn warizan_item() -> (String, String) {
     (res1, res2)
 }
 
-fn bunsu_text(a: i32, b: i32, c: i32) -> String {
+fn bunsu_text(t: (i32, i32, i32)) -> String {
     let mut res = String::new();
-    if (c != 0) {
-        res += &c.to_string();
+    if t.2 != 0 {
+        res += &t.2.to_string();
         res += &" ";
     }
-    res += &format!("\\frac{{{}}}{{{}}}", a, b);
+    res += &format!("\\frac{{{}}}{{{}}}", t.0, t.1);
     res
 }
 // c + b/a
