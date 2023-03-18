@@ -11,8 +11,8 @@ fn main() {
 
 // 約分問題1つを生成 帯分数だと数字が小さくなって難易度が落ちるので仮分数にしておく
 fn yakubun_item() -> (String, String) {
-    let mut a: i32;
-    let mut b: i32;
+    let a: i32;
+    let b: i32;
     (a, b) = create_bunsu(14);
     
     let k = get_rand(2, 10);
@@ -53,7 +53,6 @@ fn warizan_item() -> (String, String) {
     let mut f: i32 = b * c;
     (e, f) = yakubun(e, f);
     
-    let t1 = taibunsu(a, b);
     let res1: String = format!("\t\t\t\\item $\\displaystyle {} \\times {}$", bunsu_text(taibunsu(a, b)), bunsu_text(taibunsu(c, d)));
     let res2: String = format!("\t\t\t\\item $\\displaystyle {}$", bunsu_text(taibunsu(e, f)));
     (res1, res2)
