@@ -9,7 +9,7 @@ fn main() {
     }
 }
 
-// 約分問題1つを生成
+// 約分問題1つを生成 帯分数だと数字が小さくなって難易度が落ちるので仮分数にしておく
 fn yakubun_item() -> (String, String) {
     let mut a: i32;
     let mut b: i32;
@@ -17,8 +17,8 @@ fn yakubun_item() -> (String, String) {
     
     let k = get_rand(2, 10);
 
-    let res1: String = format!("\t\t\t\\item $\\displaystyle \\frac{{{}}}{{{}}}$", (b*k).to_string(), (a*k).to_string());
-    let res2: String = format!("\t\t\t\\item $\\displaystyle \\frac{{{}}}{{{}}}$", b.to_string(), a.to_string());
+    let res1: String = format!("\t\t\t\\item $\\displaystyle {}$", bunsu_text((0, a*k, b*k)));
+    let res2: String = format!("\t\t\t\\item $\\displaystyle {}$", bunsu_text((0, a, b)));
     (res1, res2)
 }
 
@@ -35,9 +35,8 @@ fn kakezan_item() -> (String, String) {
     let mut f: i32 = b * d;
     (e, f) = yakubun(e, f);
     
-    let res1: String = format!("\t\t\t\\item $\\displaystyle \\frac{{{}}}{{{}}} \\times \\frac{{{}}}{{{}}}$", b.to_string(), a.to_string(), d.to_string(), c.to_string());
-    //let res1: String = format!("\t\t\t\\item $\\displaystyle {} \\times {}$", bunsu_text(0, 0, 0), bunsu_text(0, 0, 0));
-    let res2: String = format!("\t\t\t\\item $\\displaystyle \\frac{{{}}}{{{}}}$", f.to_string(), e.to_string());
+    let res1: String = format!("\t\t\t\\item $\\displaystyle {} \\times {}$", bunsu_text(taibunsu(a, b)), bunsu_text(taibunsu(c, d)));
+    let res2: String = format!("\t\t\t\\item $\\displaystyle {}$", bunsu_text(taibunsu(e, f)));
     (res1, res2)
 }
 
@@ -55,8 +54,8 @@ fn warizan_item() -> (String, String) {
     (e, f) = yakubun(e, f);
     
     let t1 = taibunsu(a, b);
-    let res1: String = format!("\t\t\t\\item $\\displaystyle {} \\div {}$", bunsu_text(t1), bunsu_text(taibunsu(c, d)));
-    let res2: String = format!("\t\t\t\\item $\\displaystyle \\frac{{{}}}{{{}}}$", f.to_string(), e.to_string());
+    let res1: String = format!("\t\t\t\\item $\\displaystyle {} \\times {}$", bunsu_text(taibunsu(a, b)), bunsu_text(taibunsu(c, d)));
+    let res2: String = format!("\t\t\t\\item $\\displaystyle {}$", bunsu_text(taibunsu(e, f)));
     (res1, res2)
 }
 
