@@ -167,22 +167,22 @@ fn write_tex(path: String, ques: String, ans: String, n: usize, selected_problem
             0 => writeln!(file, "\t\\subsection*{{問題 仮分数で約分しましょう．}}").expect("cannot write."),
             _ => writeln!(file, "\t\\subsection*{{問題}}").expect("cannot write."),
         }
-        writeln!(file, "\t\\begin{{multicols}}{{3}}").expect("cannot write.");
+        writeln!(file, "\t\\begin{{multicols*}}{{3}}").expect("cannot write.");
         writeln!(file, "\t\t\\begin{{enumerate}}[(1)]").expect("cannot write.");
         writeln!(file, "\\setlength{{\\itemsep}}{{3mm}}").expect("cannot write.");
         write!(file, "{}", ques).expect("cannot write.");
         writeln!(file, "\t\t\\end{{enumerate}}").expect("cannot write.");
-        writeln!(file, "\t\\end{{multicols}}").expect("cannot write.");
+        writeln!(file, "\t\\end{{multicols*}}").expect("cannot write.");
 
         writeln!(file, "\t\\newpage").expect("cannot write.");
 
         writeln!(file, "\t\\subsection*{{解答}}").expect("cannot write.");
-        writeln!(file, "\t\\begin{{multicols}}{{3}}").expect("cannot write.");
+        writeln!(file, "\t\\begin{{multicols*}}{{3}}").expect("cannot write.");
         writeln!(file, "\t\t\\begin{{enumerate}}[(1)]").expect("cannot write.");
         writeln!(file, "\\setlength{{\\itemsep}}{{3mm}}").expect("cannot write.");
         write!(file, "{}", ans).expect("cannot write.");
         writeln!(file, "\t\t\\end{{enumerate}}").expect("cannot write.");
-        writeln!(file, "\t\\end{{multicols}}").expect("cannot write.");
+        writeln!(file, "\t\\end{{multicols*}}").expect("cannot write.");
 
         writeln!(file, "\t\\subsection*{{正答率}}").expect("cannot write.");
         writeln!(file, "\t\\Huge\\hspace{{1cm}} /{}", n).expect("cannot write.");
