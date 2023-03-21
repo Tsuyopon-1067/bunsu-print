@@ -97,7 +97,7 @@ fn warizan_item() -> (String, String) {
     let mut f: i32 = b * c;
     (e, f) = yakubun(e, f);
     
-    let res1: String = format!("\\item $\\displaystyle {} \\times {}$", bunsu_text(taibunsu(a, b)), bunsu_text(taibunsu(c, d)));
+    let res1: String = format!("\\item $\\displaystyle {} \\div {}$", bunsu_text(taibunsu(a, b)), bunsu_text(taibunsu(c, d)));
     let res2: String = format!("\\item $\\displaystyle {}$", bunsu_text(taibunsu(e, f)));
     (res1, res2)
 }
