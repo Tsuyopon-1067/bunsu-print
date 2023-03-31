@@ -182,10 +182,10 @@ fn write_tex(path: String, ques: String, ans: String, n: usize, selected_problem
         writeln!(file, "\\setlength{{\\itemsep}}{{3mm}}").expect("cannot write.");
         write!(file, "{}", ans).expect("cannot write.");
         writeln!(file, "\t\t\\end{{enumerate}}").expect("cannot write.");
-        writeln!(file, "\t\\end{{multicols*}}").expect("cannot write.");
-
         writeln!(file, "\t\\subsection*{{正答率}}").expect("cannot write.");
         writeln!(file, "\t\\Huge\\hspace{{1cm}} /{}", n).expect("cannot write.");
+        writeln!(file, "\t\\end{{multicols*}}").expect("cannot write.");
+
         writeln!(file, "\\end{{document}}").expect("cannot write.");
 }
 
